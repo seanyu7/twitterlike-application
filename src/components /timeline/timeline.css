@@ -1,6 +1,11 @@
 .timeline {
   flex: 0.45;
   border-right: 1px solid var(--twitter-background-color);
+  overflow-y: scroll;
+}
+
+.timeline::-webkit-scrollbar {
+  display: none;
 }
 
 .timelineHeader {
