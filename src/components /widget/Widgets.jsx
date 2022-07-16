@@ -1,5 +1,7 @@
 import Search from "@mui/icons-material/Search";
 import React from "react";
+import { TwitterTweetEmbed } from "react-twitter-embed";
+import "./widgets.css";
 
 function Widgets() {
   return (
@@ -12,6 +14,7 @@ function Widgets() {
         <h2>What are you up to? </h2>
         {/*add some library*/}
         
+
       </div>
     </div>
   );
