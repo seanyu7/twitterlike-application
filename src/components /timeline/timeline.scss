@@ -1,5 +1,5 @@
 .timeline {
-  flex: 0.45;
+  width: 400px;
   border-right: 1px solid var(--twitter-background-color);
   overflow-y: scroll;
 }
@@ -13,7 +13,7 @@
   background-color: white !important;
   z-index: 100;
   border: 1px solid var(--twitter-background-color);
-  padding: 15px 20px;
+  padding: 5px 20px;
 }
 
 .timelineHeader > h2 {
