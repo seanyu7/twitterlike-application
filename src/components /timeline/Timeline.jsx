@@ -13,14 +13,14 @@ function Timeline() {
       {/* Tweetbox*/}
       <TweetBox />
       {/* Post*/}
-      <Post/>
-      <Post/>
-      <Post/>
-      <Post/>
-      <Post/>
-      <Post/>
-      <Post/>
-      <Post/>
+      <Post
+        displayName="Jhon Doe"
+        userName="jhondoe"
+        verified={true}
+        text="Hello, I am a very long tweet that will be truncated"
+        avatar="http://shincode.info/wp-content/uploads/2021/12/icon.png"
+        image="http://source.unsplash.com/random"
+      />
     </div>
   );
 }
