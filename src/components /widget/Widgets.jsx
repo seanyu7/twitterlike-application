@@ -2,6 +2,7 @@ import Search from "@mui/icons-material/Search";
 import React from "react";
 import { TwitterTweetEmbed } from "react-twitter-embed";
 import "./widgets.css";
+import {Tweet} from "react-twitter-widgets";
 
 function Widgets() {
   return (
