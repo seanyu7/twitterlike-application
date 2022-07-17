@@ -7,32 +7,31 @@ import RepeatIcon from "@mui/icons-material/Repeat";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import PublishIcon from '@mui/icons-material/Publish';
 
-function Post() {
+function Post({ displayName, userName, verified, text, image, avatar }) {
   return (
     <div className="post">
       <div className="postAvatar">
-        <Avatar />
+        <Avatar src={avatar}/>
       </div>
       <div className="postBody">
         <div className="postHeader">
           <div className="postHeadertText">
             <h3>
-                programming tutorial
+                {displayName}
             <span className="postHeaderSepecial">
               <VerifiedUserIcon className="postBadge" />
-              @SeanYuTakaki
+              @{userName}
             </span>
             </h3>
           </div>
           <div className="postHeaderDescription">
             <p>
-              Making a twitterlike web application for learning codes and the
-              system of backend.
+             {text}
             </p>
           </div>
         </div>
         <img
-          src="https://source.unsplash.com/random"
+          src={image}
           alt="Randopm Photo from Unsplash"
         />
         <div className="postFooter">
