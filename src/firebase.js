@@ -13,3 +13,5 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 /* ここの文章ではファイアーストアをAPPにて使うという意味でgetfirestoreの括弧の中にappと書いてある */
+
+export default db;
