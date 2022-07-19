@@ -9,7 +9,6 @@ import { useEffect } from "react";
 
 function Timeline() {
   const [posts, setPosts] = useState([]);
-  const [image, setImage] = useState("");
 
   useEffect(() => {
     const postData = collection(db, "posts");
