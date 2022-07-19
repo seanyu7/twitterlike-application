@@ -4,6 +4,9 @@
   cursor: pointer;
   transition: color 0.3s ease-in-out;
 }
+.sidebarOption .sidebarOptionActive {
+  color: var(--twitter-color);
+}
 .sidebarOption:hover {
   background-color: #e8f5fe;
   border-radius: 30px;
