@@ -2,8 +2,22 @@ import React from "react";
 import Post from "./Post";
 import "./timeline.css";
 import TweetBox from "./TweetBox";
+import db from "../../firebase";
+import { collection, getDocs } from "firebase/firestore";
+import { useState } from "react";
+import { useEffect } from "react";
 
 function Timeline() {
+  const [posts, setPosts] = useState([]);
+  const [image, setImage] = useState("");
+
+  useEffect(() => {
+    const postData = collection(db, "posts");
+    getDocs(postData).then((querySnapshot) => {
+      setPosts(querySnapshot.docs.map((doc) => doc.data()));
+    });
+  }, []);
+
   return (
     <div className="timeline">
       {/* header*/}
@@ -13,14 +27,18 @@ function Timeline() {
       {/* Tweetbox*/}
       <TweetBox />
       {/* Post*/}
-      <Post
-        displayName="Jhon Doe"
-        userName="jhondoe"
-        verified={true}
-        text="Hello, I am a very long tweet that will be truncated"
-        avatar="http://shincode.info/wp-content/uploads/2021/12/icon.png"
-        image="http://source.unsplash.com/random"
-      />
+
+      {posts.map((post) => (
+        <Post
+          key={post.text}
+          displayName={post.displayName}
+          userName={post.userName}
+          verified={post.verified}
+          text={post.text}
+          avatar={post.avatar}
+          image={post.image}
+        />
+      ))}
     </div>
   );
 }
