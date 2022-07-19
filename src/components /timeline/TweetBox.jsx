@@ -2,6 +2,8 @@ import React from "react";
 import "./tweetBox.css";
 import { Avatar, Button } from "@mui/material";
 import { useState } from "react";
+import { collection, addDoc } from "firebase/firestore";
+import db from "../../firebase";
 
 function TweetBox() {
   const [tweetMesage, setTweetMessage] = useState("");
@@ -9,7 +11,18 @@ function TweetBox() {
 
   const sendTweet = (e) => {
     /*firebaseにデータにデータを追加する。*/
-    e.preventDefault();/*TWEETボタンを押してもページをリロードしない*/
+    e.preventDefault(); /*TWEETボタンを押してもページをリロードしない*/
+    
+    addDoc(collection(db, "posts"), {
+      displayName: "John Doe",
+      userName: "@johndoe",
+      verified: true,
+      text: tweetMesage,
+      avatar: "https:/shincode.com/images/avatar/avatar-1.png",
+      image: tweetImage,
+    });
+    setTweetMessage("");
+    setTweetImage("");
   };
 
   return (
