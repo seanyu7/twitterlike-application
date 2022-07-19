@@ -3,7 +3,7 @@ import Post from "./Post";
 import "./timeline.css";
 import TweetBox from "./TweetBox";
 import db from "../../firebase";
-import { collection, getDocs, query, orderBy } from "firebase/firestore";
+import { collection, getDocs, query, orderBy, onSnapshot} from "firebase/firestore";
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -15,10 +15,18 @@ function Timeline() {
     const q = query(postData, orderBy("timestamp", "desc"));
     /*firebaseのドキュメントにて、順番の並び替えを行うときはfirebaseのドキュメントにて並べ方について
     調べれば教えてくれる。*/
+    
+    /*この書き方だとリアルタイムではない取得の方法になっていしまう。
+    
     getDocs(q).then((querySnapshot) => {
       setPosts(querySnapshot.docs.map((doc) => doc.data()));
+    });*/
+
+    /*getting data from firebase in realtime*/
+    onSnapshot(q, (querySnapshot) => {
+      setPosts(querySnapshot.docs.map((doc) => doc.data()));
     });
-  }, []);
+  },[]);
 
   return (
     <div className="timeline">
