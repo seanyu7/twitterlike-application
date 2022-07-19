@@ -2,7 +2,7 @@ import React from "react";
 import "./tweetBox.css";
 import { Avatar, Button } from "@mui/material";
 import { useState } from "react";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import db from "../../firebase";
 
 function TweetBox() {
@@ -20,6 +20,7 @@ function TweetBox() {
       text: tweetMesage,
       avatar: "https:/shincode.com/images/avatar/avatar-1.png",
       image: tweetImage,
+      timestamp: serverTimestamp(),
     });
     setTweetMessage("");
     setTweetImage("");
